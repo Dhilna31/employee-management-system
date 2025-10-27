@@ -1,0 +1,44 @@
+Database: employee_db
+
+-- Create Department table
+CREATE TABLE departments (
+    id BIGINT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(255) NOT NULL,
+    department_head_id BIGINT,
+    CONSTRAINT fk_department_head
+        FOREIGN KEY (department_head_id)
+        REFERENCES employees(id)
+        ON DELETE SET NULL
+);
+
+-- Create Employee table
+CREATE TABLE employees (
+    id BIGINT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(255) NOT NULL,
+    salary DOUBLE,
+    role VARCHAR(100),
+    address VARCHAR(255),
+    dob DATE,
+    joining_date DATE,
+    yearly_bonus_percentage DOUBLE,
+    department_id BIGINT,
+    reporting_manager_id BIGINT,
+    CONSTRAINT fk_department
+        FOREIGN KEY (department_id)
+        REFERENCES departments(id)
+        ON DELETE SET NULL,
+    CONSTRAINT fk_reporting_manager
+        FOREIGN KEY (reporting_manager_id)
+        REFERENCES employees(id)
+        ON DELETE SET NULL
+);
+
+Explanation
+Auto Increment IDs:
+BIGINT AUTO_INCREMENT is used for id fields for unique primary keys.
+Foreign Keys:
+department_id in employees → references departments(id)
+reporting_manager_id in employees → self-referencing FK to employees(id)
+department_head_id in departments → references employees(id)
+ON DELETE SET NULL:
+Ensures that deleting a referenced employee or department does not delete dependent records, but sets the FK to NULL.
