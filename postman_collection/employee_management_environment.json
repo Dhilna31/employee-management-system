@@ -1,0 +1,15 @@
+{
+	"id": "46d242b3-3893-407f-8011-a321e472b3e0",
+	"name": "EmployeeManagementEnv",
+	"values": [
+		{
+			"key": "baseUrl",
+			"value": "",
+			"type": "default",
+			"enabled": true
+		}
+	],
+	"_postman_variable_scope": "environment",
+	"_postman_exported_at": "2025-10-27T05:52:43.162Z",
+	"_postman_exported_using": "Postman/11.68.5"
+}
