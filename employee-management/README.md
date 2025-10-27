@@ -13,5 +13,5 @@ A Spring Boot REST API project for managing employees and departments.
 ## Run Instructions
 1. Clone the repo:
    ```bash
-   git clone https://github.com/<your-username>/employee-management-system.git
+   git clone https://github.com/dhilna31/employee-management-system.git
    
